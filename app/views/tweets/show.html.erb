@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tweet.user %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @tweet.content %>
+</p>
+
+<% if @tweet.user.present? %>
+  <p>
+    <strong>Image:</strong>
+    <!--
+    <%= image_tag(@tweet.user, :size => "100x100") %>
+    -->
+      <% if @tweet.user.end_with?(".mp4") %>
+              <video width="100" height="100" controls="controls">
+                  <source src=<%= "/"+ @tweet.user %>/>
+                  Your browser does not support the video tag.
+              </video>
+
+      <% else %>
+        <%= image_tag(@tweet.user, :size => "100x100") %>
+      <% end %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
+<%= link_to 'Back', tweets_path %>
