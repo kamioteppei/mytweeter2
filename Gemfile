@@ -57,6 +57,7 @@ end
 group :production do
   # development and test use sqlite3, production use posgresql
   gem 'pg', '0.20.0'
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
